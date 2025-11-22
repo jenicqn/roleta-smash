@@ -179,21 +179,24 @@ input:focus {
   box-shadow:
     0 0 0 4px rgba(15, 23, 42, 1),
     0 24px 40px rgba(0, 0, 0, 0.85);
+
   background:
     conic-gradient(
-      #f97316 0deg 60deg,
-      #22c55e 60deg 120deg,
-      #3b82f6 120deg 180deg,
-      #e879f9 180deg 240deg,
-      #a855f7 240deg 300deg,
-      #facc15 300deg 360deg
+      #F36F22 0deg 60deg,     /* Crispyzola */
+      #E05E7B 60deg 120deg,   /* Dos Anjos */
+      #7D0945 120deg 180deg,  /* Batata P */
+      #933A9E 180deg 240deg,  /* 1985 */
+      #421E8D 240deg 300deg,  /* Coxinha */
+      #771877 300deg 360deg   /* Soda Italiana */
     );
+    
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 4s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
 }
+
 
 /* círculo central */
 .wheel-inner {
@@ -236,25 +239,19 @@ input:focus {
   left: 50%;
   top: 50%;
   transform-origin: center center;
-  width: 58%;
+  width: 55%;
   text-align: center;
-  font-size: 11px;
-  font-weight: 800;
-  color: #ffffff;
-  word-wrap: break-word;
+  font-size: 12px;
   line-height: 1.1;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-  z-index: 1;
   padding: 0 2px;
 }
 
-/* Ajuste fino de posição (mais afastado do centro) */
-.wheel-label-0 { transform: rotate(0deg) translateY(-55%) rotate(0deg); }
-.wheel-label-1 { transform: rotate(60deg) translateY(-55%) rotate(-60deg); }
-.wheel-label-2 { transform: rotate(120deg) translateY(-55%) rotate(-120deg); }
-.wheel-label-3 { transform: rotate(180deg) translateY(-55%) rotate(-180deg); }
-.wheel-label-4 { transform: rotate(240deg) translateY(-55%) rotate(-240deg); }
-.wheel-label-5 { transform: rotate(300deg) translateY(-55%) rotate(-300deg); }
+.wheel-label-0 { transform: rotate(0deg) translateY(-67%) rotate(0deg); }
+.wheel-label-1 { transform: rotate(60deg) translateY(-67%) rotate(-60deg); }
+.wheel-label-2 { transform: rotate(120deg) translateY(-67%) rotate(-120deg); }
+.wheel-label-3 { transform: rotate(180deg) translateY(-67%) rotate(-180deg); }
+.wheel-label-4 { transform: rotate(240deg) translateY(-67%) rotate(-240deg); }
+.wheel-label-5 { transform: rotate(300deg) translateY(-67%) rotate(-300deg); }
 
 
 /* -------- RESULT BOX -------- */
@@ -315,4 +312,17 @@ input:focus {
     width: 300px;
     height: 300px;
   }
+}
+
+.sticker-text {
+  font-family: "Arial Black", Impact, sans-serif;
+  font-weight: 900;
+  color: #f97316;
+  text-shadow:
+    -2px -2px 0 white,
+     2px -2px 0 white,
+    -2px  2px 0 white,
+     2px  2px 0 white;
+  letter-spacing: 1px;
+  text-transform: lowercase;
 }
