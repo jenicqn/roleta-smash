@@ -230,27 +230,32 @@ input:focus {
 }
 
 /* -------- TEXTOS DA ROLETA -------- */
+/* ======== CORREÇÃO DE TEXTOS NA ROLETA ======== */
 .wheel-label {
   position: absolute;
   left: 50%;
   top: 50%;
   transform-origin: center center;
-  width: 50%;
+  width: 58%;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
-  color: #f9fafb;
+  color: #ffffff;
+  word-wrap: break-word;
+  line-height: 1.1;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   z-index: 1;
+  padding: 0 2px;
 }
 
-/* cada fatia rotacionada, texto corrigido para ficar na horizontal */
-.wheel-label-0 { transform: rotate(0deg) translateY(-45%) rotate(0deg); }
-.wheel-label-1 { transform: rotate(60deg) translateY(-45%) rotate(-60deg); }
-.wheel-label-2 { transform: rotate(120deg) translateY(-45%) rotate(-120deg); }
-.wheel-label-3 { transform: rotate(180deg) translateY(-45%) rotate(-180deg); }
-.wheel-label-4 { transform: rotate(240deg) translateY(-45%) rotate(-240deg); }
-.wheel-label-5 { transform: rotate(300deg) translateY(-45%) rotate(-300deg); }
+/* Ajuste fino de posição (mais afastado do centro) */
+.wheel-label-0 { transform: rotate(0deg) translateY(-55%) rotate(0deg); }
+.wheel-label-1 { transform: rotate(60deg) translateY(-55%) rotate(-60deg); }
+.wheel-label-2 { transform: rotate(120deg) translateY(-55%) rotate(-120deg); }
+.wheel-label-3 { transform: rotate(180deg) translateY(-55%) rotate(-180deg); }
+.wheel-label-4 { transform: rotate(240deg) translateY(-55%) rotate(-240deg); }
+.wheel-label-5 { transform: rotate(300deg) translateY(-55%) rotate(-300deg); }
+
 
 /* -------- RESULT BOX -------- */
 .result-box {
