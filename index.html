@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +12,6 @@
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-
     body {
       min-height: 100vh;
       background: radial-gradient(circle at top, #1f2937, #020617);
@@ -21,7 +21,6 @@
       justify-content: center;
       padding: 16px;
     }
-
     .card {
       width: 100%;
       max-width: 480px;
@@ -31,12 +30,10 @@
       padding: 24px 20px 28px;
       border: 1px solid rgba(148, 163, 184, 0.3);
     }
-
     .logo {
       text-align: center;
       margin-bottom: 16px;
     }
-
     .logo span {
       display: inline-block;
       font-weight: 800;
@@ -49,34 +46,29 @@
       padding: 4px 12px;
       border: 1px solid rgba(249, 115, 22, 0.3);
     }
-
     h1 {
       text-align: center;
       font-size: 22px;
       margin-bottom: 4px;
     }
-
     .subtitle {
       text-align: center;
       font-size: 14px;
       color: #9ca3af;
       margin-bottom: 16px;
     }
-
     form {
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-top: 8px;
     }
-
     label {
       font-size: 13px;
       color: #e5e7eb;
       margin-bottom: 4px;
       display: block;
     }
-
     input {
       width: 100%;
       padding: 10px 12px;
@@ -88,17 +80,10 @@
       outline: none;
       transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
-
-    input::placeholder {
-      color: #6b7280;
-    }
-
     input:focus {
       border-color: #f97316;
       box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.5);
-      background: #020617;
     }
-
     .btn {
       margin-top: 8px;
       width: 100%;
@@ -112,37 +97,29 @@
       color: #111827;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
     }
-
     .btn:hover {
       filter: brightness(1.05);
       box-shadow: 0 12px 24px rgba(249, 115, 22, 0.3);
       transform: translateY(-1px);
     }
-
     .btn:active {
       transform: translateY(0);
       box-shadow: none;
     }
-
     .small-print {
       margin-top: 10px;
       font-size: 11px;
       color: #6b7280;
       text-align: center;
     }
-
-    /* Telas */
     .screen {
       display: none;
     }
-
     .screen.active {
       display: block;
     }
-
-    /* Roleta */
     .roulette-container {
       display: flex;
       flex-direction: column;
@@ -150,14 +127,12 @@
       gap: 16px;
       margin-top: 8px;
     }
-
     .wheel-wrapper {
       position: relative;
       width: 260px;
       height: 260px;
       margin: 8px auto 4px;
     }
-
     .wheel {
       width: 100%;
       height: 100%;
@@ -177,11 +152,11 @@
       align-items: center;
       justify-content: center;
       transition: transform 4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
     }
-
     .wheel-inner {
-      width: 42%;
-      height: 42%;
+      width: 38%;
+      height: 38%;
       border-radius: 50%;
       background: radial-gradient(circle, #020617, #111827);
       border: 3px solid rgba(148, 163, 184, 0.5);
@@ -192,8 +167,8 @@
       font-size: 13px;
       text-align: center;
       padding: 6px;
+      z-index: 2;
     }
-
     .pointer {
       position: absolute;
       top: -14px;
@@ -206,11 +181,26 @@
       border-bottom: 22px solid #f97316;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7));
     }
-
-    .spin-btn {
-      margin-top: 8px;
+    .wheel-label {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: center center;
+      width: 46%;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f172a;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+      z-index: 1;
     }
-
+    .wheel-label-0 { transform: rotate(0deg) translateY(-44%) rotate(0deg); }
+    .wheel-label-1 { transform: rotate(60deg) translateY(-44%) rotate(-60deg); }
+    .wheel-label-2 { transform: rotate(120deg) translateY(-44%) rotate(-120deg); }
+    .wheel-label-3 { transform: rotate(180deg) translateY(-44%) rotate(-180deg); }
+    .wheel-label-4 { transform: rotate(240deg) translateY(-44%) rotate(-240deg); }
+    .wheel-label-5 { transform: rotate(300deg) translateY(-44%) rotate(-300deg); }
+    .spin-btn { margin-top: 8px; }
     .result-box {
       margin-top: 4px;
       padding: 10px 12px;
@@ -220,11 +210,9 @@
       font-size: 14px;
       text-align: center;
     }
-
     .result-box strong {
       color: #f97316;
     }
-
     .probabilities {
       margin-top: 10px;
       font-size: 11px;
@@ -232,48 +220,34 @@
       border-top: 1px dashed rgba(55, 65, 81, 0.8);
       padding-top: 8px;
     }
-
     .probabilities ul {
       list-style: none;
       margin-top: 4px;
     }
-
     .probabilities li {
       margin-bottom: 2px;
     }
-
     .welcome {
       font-size: 13px;
       color: #9ca3af;
       text-align: center;
       margin-bottom: 4px;
     }
-
     .welcome span {
       color: #f97316;
       font-weight: 600;
     }
-
-    @media (min-width: 640px) {
-      .card {
-        padding: 28px 28px 32px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-    }
   </style>
 </head>
+
 <body>
   <div class="card">
     <div class="logo">
-      <span>Smash do Cabo Black Friday</span>
+      <span>SMASH DO CABO BLACK FRIDAY</span>
     </div>
     <h1>Roleta de Brindes</h1>
     <p class="subtitle">Cadastre seus dados, gire a roleta e descubra qual brinde você vai levar</p>
 
-    <!-- Tela de cadastro -->
     <div id="screen-form" class="screen active">
       <form id="register-form">
         <div>
@@ -282,7 +256,7 @@
         </div>
         <div>
           <label for="telefone">Telefone com WhatsApp</label>
-          <input id="telefone" name="telefone" type="tel" placeholder="Exemplo 22999999999" required />
+          <input id="telefone" name="telefone" type="tel" placeholder="22999999999" required />
         </div>
         <div>
           <label for="email">Email</label>
@@ -290,7 +264,7 @@
         </div>
         <div>
           <label for="cidade">Cidade onde você mora</label>
-          <input id="cidade" name="cidade" type="text" placeholder="Exemplo Arraial do Cabo" required />
+          <input id="cidade" name="cidade" type="text" placeholder="Arraial do Cabo" required />
         </div>
         <button type="submit" class="btn">Começar a jogar</button>
       </form>
@@ -299,27 +273,27 @@
       </p>
     </div>
 
-    <!-- Tela da roleta -->
     <div id="screen-roulette" class="screen">
       <p class="welcome">Boa sorte, <span id="player-name"></span></p>
       <div class="roulette-container">
         <div class="wheel-wrapper">
           <div class="pointer"></div>
           <div id="wheel" class="wheel">
-            <div class="wheel-inner">
-              Clique para girar
-            </div>
+            <div class="wheel-inner">Clique para girar</div>
+            <div class="wheel-label wheel-label-0">Crispyzola</div>
+            <div class="wheel-label wheel-label-1">Coxinha</div>
+            <div class="wheel-label wheel-label-2">Dos Anjos</div>
+            <div class="wheel-label wheel-label-3">1985</div>
+            <div class="wheel-label wheel-label-4">Batata P</div>
+            <div class="wheel-label wheel-label-5">Soda</div>
           </div>
         </div>
-
         <button id="spin-btn" class="btn spin-btn">Girar roleta</button>
-
         <div id="result" class="result-box" style="display:none;">
           <div id="result-text"></div>
         </div>
-
         <div class="probabilities">
-          <div>Chances de ganhar, reais, sem trapaça:</div>
+          <div>Chances de ganhar, reais:</div>
           <ul>
             <li>1 Crispyzola, 15 por cento</li>
             <li>1 porção de coxinha, 15 por cento</li>
@@ -334,7 +308,10 @@
   </div>
 
   <script>
-    // Configuração dos prêmios e probabilidades
+    const SUPABASE_URL = "https://kwktdbinfadztnkghuul.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3a3RkYmluZmFkenRua2dodXVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc5NzI5NjAsImV4cCI6MjA2MzU0ODk2MH0.jN-ggFrIE1x_4kO8KE5G_bZq6V1yFT1El64oQ_ELubY";
+    const FEEDBACK_TABLE = "feedback_detalhado";
+
     const prizes = [
       { label: "1 Crispyzola", chance: 15 },
       { label: "1 porção de coxinha", chance: 15 },
@@ -348,7 +325,6 @@
     const screenForm = document.getElementById("screen-form");
     const screenRoulette = document.getElementById("screen-roulette");
     const playerNameEl = document.getElementById("player-name");
-
     const wheel = document.getElementById("wheel");
     const spinBtn = document.getElementById("spin-btn");
     const resultBox = document.getElementById("result");
@@ -356,72 +332,65 @@
 
     let hasSpun = false;
 
-    // Cadastro e transição para roleta
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+    async function salvarNoSupabase({ nome, telefone, email, cidade }) {
+      const url = `${SUPABASE_URL}/rest/v1/${FEEDBACK_TABLE}`;
+      const payload = {
+        nome,
+        telefone,
+        email,
+        morador: cidade,
+        origem: "Roleta de brindes Black Friday 2025"
+      };
+      const resp = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          Prefer: "return=minimal"
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!resp.ok) {
+        throw new Error("Falha ao salvar no Supabase");
+      }
+    }
 
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
       const nome = document.getElementById("nome").value.trim();
       const telefone = document.getElementById("telefone").value.trim();
       const email = document.getElementById("email").value.trim();
       const cidade = document.getElementById("cidade").value.trim();
-
-      if (!nome || !telefone || !email || !cidade) {
-        alert("Preencha todos os campos antes de continuar");
-        return;
+      if (!nome || !telefone || !email || !cidade) return alert("Preencha tudo");
+      try {
+        await salvarNoSupabase({ nome, telefone, email, cidade });
+      } catch {
+        return alert("Erro ao salvar, tente novamente");
       }
-
-      // Aqui você pode enviar para seu backend ou Supabase
-      // Exemplo básico (comente ou adapte):
-      /*
-      fetch("URL_DA_SUA_API_AQUI", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, telefone, email, cidade })
-      }).catch(console.error);
-      */
-
       playerNameEl.textContent = nome;
-
       screenForm.classList.remove("active");
       screenRoulette.classList.add("active");
     });
 
-    // Sorteio ponderado
     function pickPrizeWeighted() {
-      const total = prizes.reduce((sum, p) => sum + p.chance, 0); // deve ser 100
-      let r = Math.random() * total;
-      let acc = 0;
+      let r = Math.random() * 100, acc = 0;
       for (let i = 0; i < prizes.length; i++) {
         acc += prizes[i].chance;
-        if (r < acc) {
-          return { index: i, prize: prizes[i] };
-        }
+        if (r < acc) return { index: i, prize: prizes[i] };
       }
-      // fallback teórico para o último
-      return { index: prizes.length - 1, prize: prizes[prizes.length - 1] };
     }
 
     function spinWheel() {
-      if (hasSpun) {
-        alert("Você já girou a roleta. Um brinde por cadastro");
-        return;
-      }
-
+      if (hasSpun) return alert("Você só pode girar uma vez");
       hasSpun = true;
       spinBtn.disabled = true;
       spinBtn.textContent = "Girando...";
-
       const { index, prize } = pickPrizeWeighted();
-
-      const sliceAngle = 360 / prizes.length; // 60 graus
-      const centerAngle = index * sliceAngle + sliceAngle / 2; // centro da fatia
-      // 0 grau fica na direita, ponteiro está no topo, 90 graus
-      // rotação necessária para alinhar o centro da fatia escolhida com o topo
-      const baseSpins = 5; // voltas completas para ficar dramático
-      const rotation = baseSpins * 360 + (90 - centerAngle);
-
+      const sliceAngle = 360 / prizes.length;
+      const centerAngle = index * sliceAngle + sliceAngle / 2;
+      const rotation = 5 * 360 + (90 - centerAngle);
       wheel.style.transform = `rotate(${rotation}deg)`;
-
       setTimeout(() => {
         resultBox.style.display = "block";
         resultText.innerHTML = `
@@ -430,12 +399,14 @@
           <p style="margin-top:6px;font-size:12px;color:#9ca3af;">
             Mostre esta tela para a equipe do Smash do Cabo para validar seu brinde, sujeito às regras da promoção.
           </p>
-        `;
+          <p style="margin-top:6px;font-size:12px;color:#f87171;">
+            O brinde poderá ser retirado somente na loja Smash do Cabo na Praia dos Anjos na data de 28 de novembro de 2025, não haverá exceções.
+          </p>`;
         spinBtn.textContent = "Brinde definido";
-      }, 4200); // um pouco mais que o tempo da animação
+      }, 4200);
     }
-
     spinBtn.addEventListener("click", spinWheel);
   </script>
+
 </body>
 </html>
