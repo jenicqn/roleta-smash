@@ -1,9 +1,9 @@
-// 🔐 Supabase
+// Supabase
 const SUPABASE_URL = "https://kwktdbinfadztnkghuul.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3a3RkYmluZmFkenRua2dodXVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc5NzI5NjAsImV4cCI6MjA2MzU0ODk2MH0.jN-ggFrIE1x_4kO8KE5G_bZq6V1yFT1El64oQ_ELubY";
 const TABLE = "roleta_cadastros";
 
-// 🎁 Prêmios e chances
+// Prêmios e chances
 const prizes = [
   { label: "1 Crispyzola", chance: 15 },
   { label: "1 porção de coxinha", chance: 15 },
@@ -13,7 +13,7 @@ const prizes = [
   { label: "1 soda italiana", chance: 10 }
 ];
 
-// 🎯 Elementos
+// Elementos da página
 const form = document.getElementById("register-form");
 const screenForm = document.getElementById("screen-form");
 const screenRoulette = document.getElementById("screen-roulette");
@@ -24,9 +24,10 @@ const resultBox = document.getElementById("result");
 const resultText = document.getElementById("result-text");
 
 let hasSpun = false;
+let currentUser = null; // guarda o cadastro até o giro
 
-// 📌 Salvar no Supabase
-async function salvarNoSupabase({ nome, telefone, email, cidade }) {
+// Salvar no Supabase já com o brinde
+async function salvarNoSupabase({ nome, telefone, email, cidade, brinde }) {
   const resp = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
     method: "POST",
     headers: {
@@ -40,60 +41,104 @@ async function salvarNoSupabase({ nome, telefone, email, cidade }) {
       telefone,
       email,
       cidade,
+      brinde,
       origem: "Roleta de brindes Black Friday 2025"
     })
   });
 
   if (!resp.ok) {
-    const txt = await resp.text();
-    console.error("Erro Supabase:", txt);
-    throw new Error("Falha ao salvar no Supabase");
+    const text = await resp.text();
+    console.error("Erro Supabase", resp.status, text);
+
+    // 409 significa violação do UNIQUE, ou seja, telefone já participou
+    if (resp.status === 409) {
+      throw new Error("duplicado");
+    }
+
+    throw new Error("outro_erro");
   }
 }
 
-// 💾 Cadastro
-form.addEventListener("submit", async (e) => {
+// Submit do cadastro, ainda sem gravar no banco
+form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   const nome = document.getElementById("nome").value.trim();
   const telefone = document.getElementById("telefone").value.trim();
   const email = document.getElementById("email").value.trim();
   const cidade = document.getElementById("cidade").value.trim();
 
   if (!nome || !telefone || !email || !cidade) {
-    return alert("Preencha todos os campos");
+    alert("Preencha todos os campos");
+    return;
   }
 
-  try {
-    await salvarNoSupabase({ nome, telefone, email, cidade });
-  } catch {
-    return alert("Problema ao salvar, tente novamente");
-  }
+  currentUser = { nome, telefone, email, cidade };
 
   playerNameEl.textContent = nome;
   screenForm.classList.remove("active");
   screenRoulette.classList.add("active");
 });
 
-// 🎲 Escolher prêmio
+// Sorteio ponderado
 function pickPrizeWeighted() {
-  let r = Math.random() * 100, acc = 0;
+  let r = Math.random() * 100;
+  let acc = 0;
+
   for (let i = 0; i < prizes.length; i++) {
     acc += prizes[i].chance;
-    if (r < acc) return { index: i, prize: prizes[i] };
+    if (r < acc) {
+      return { index: i, prize: prizes[i] };
+    }
   }
+
+  return { index: prizes.length - 1, prize: prizes[prizes.length - 1] };
 }
 
-// 🎡 Girar roleta
-function spinWheel() {
-  if (hasSpun) return alert("Você só pode girar uma vez");
-  hasSpun = true;
-  spinBtn.disabled = true;
-  spinBtn.textContent = "Girando...";
+// Girar roleta
+async function spinWheel() {
+  if (!currentUser) {
+    alert("Faça o cadastro antes de girar");
+    return;
+  }
+
+  if (hasSpun) {
+    alert("Você só pode girar uma vez");
+    return;
+  }
 
   const { index, prize } = pickPrizeWeighted();
+
+  spinBtn.disabled = true;
+  spinBtn.textContent = "Verificando...";
+
+  // tenta salvar no banco antes de animar
+  try {
+    await salvarNoSupabase({
+      ...currentUser,
+      brinde: prize.label
+    });
+  } catch (err) {
+    spinBtn.disabled = false;
+    spinBtn.textContent = "Girar roleta";
+
+    if (err.message === "duplicado") {
+      alert("Esse telefone já participou desta promoção, um brinde por cliente");
+      return;
+    }
+
+    alert("Tivemos um problema ao registrar seu brinde, tente novamente em instantes");
+    return;
+  }
+
+  // se conseguiu salvar, agora pode girar de verdade
+  hasSpun = true;
+  spinBtn.textContent = "Girando...";
+
   const sliceAngle = 360 / prizes.length;
   const centerAngle = index * sliceAngle + sliceAngle / 2;
   const rotation = 5 * 360 + (90 - centerAngle);
+
   wheel.style.transform = `rotate(${rotation}deg)`;
 
   setTimeout(() => {
@@ -106,8 +151,14 @@ function spinWheel() {
       </p>
       <p style="margin-top:6px;font-size:12px;color:#f87171;">
         O brinde poderá ser retirado somente na loja Smash do Cabo na Praia dos Anjos na data de 28 de novembro de 2025, não haverá exceções.
-      </p>`;
+      </p>
+    `;
     spinBtn.textContent = "Brinde definido";
   }, 4200);
 }
-spinBtn.addEventListener("click", spinWheel);
+
+spinBtn.addEventListener("click", () => {
+  spinWheel().catch((e) => {
+    console.error("Erro inesperado no giro", e);
+  });
+});
