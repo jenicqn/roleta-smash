@@ -8,13 +8,20 @@
 </head>
 
 <body>
+
   <div class="card">
+
+    <!-- LOGO + TEXTO -->
     <div class="logo">
-      <span>SMASH DO CABO BLACK FRIDAY</span>
+      <img src="logo.png" alt="Smash do Cabo" class="logo-img" />
+      <span>BLACK FRIDAY SMASH DO CABO </span>
     </div>
+
+    <!-- TÍTULO E SUB -->
     <h1>Roleta de Brindes</h1>
     <p class="subtitle">Cadastre seus dados, gire a roleta e descubra qual brinde você vai levar</p>
 
+    <!-- TELA FORM -->
     <div id="screen-form" class="screen active">
       <form id="register-form">
         <div>
@@ -33,15 +40,19 @@
           <label for="cidade">Cidade onde você mora</label>
           <input id="cidade" name="cidade" type="text" placeholder="Arraial do Cabo" required />
         </div>
+
         <button type="submit" class="btn">Começar a jogar</button>
       </form>
+
       <p class="small-print">
         Ao continuar, você concorda em receber comunicações do Smash do Cabo sobre promoções, sorteios e novidades.
       </p>
     </div>
 
+    <!-- TELA DA ROLETA -->
     <div id="screen-roulette" class="screen">
       <p class="welcome">Boa sorte, <span id="player-name"></span></p>
+
       <div class="roulette-container">
         <div class="wheel-wrapper">
           <div class="pointer"></div>
@@ -55,14 +66,16 @@
             <div class="wheel-label wheel-label-5">Soda</div>
           </div>
         </div>
+
         <button id="spin-btn" class="btn spin-btn">Girar roleta</button>
+
         <div id="result" class="result-box" style="display:none;">
           <div id="result-text"></div>
         </div>
-
       </div>
     </div>
-  </div>
+
+  </div><!-- fim card -->
 
   <script src="main.js"></script>
 </body>
