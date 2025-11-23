@@ -305,3 +305,37 @@ input:focus {
     height: 330px;
   }
 }
+
+/* CORREÇÃO DE CENTRALIZAÇÃO GERAL */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffd4a3 0%, #ff8a2b 40%, #ff6a00 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center; /* <-- AQUI ESTÁ A CORREÇÃO */
+  padding: 32px 16px;
+  flex-direction: column;
+}
+
+/* LOGO MAIOR EM TELAS GRANDES */
+@media (min-width: 900px) {
+  .logo-img {
+    width: 260px;
+  }
+}
+
+/* AUMENTO DA ROLETA EM DESKTOP */
+@media (min-width: 900px) {
+  .wheel-wrapper {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+/* CARD MAIS LARGO EM TELAS GRANDES */
+@media (min-width: 900px) {
+  .card {
+    max-width: 720px;
+    padding: 42px 50px 50px;
+  }
+}
