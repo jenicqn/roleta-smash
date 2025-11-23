@@ -1,54 +1,61 @@
-/* -------- RESET -------- */
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
 }
 
-/* -------- BODY, FUNDO LARANJA SMASH -------- */
+/* FUNDO GERAL */
 body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffd4a3 0%, #ff8a2b 40%, #ff6a00 100%);
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px 16px;
 }
 
+/* CARD PRINCIPAL */
 .card {
   width: 100%;
-}
-
-/* -------- CARD -------- */
-.card {
-  width: 100%;
-  max-width: 540px;
+  max-width: 520px;
   background: #020617;
-  border-radius: 20px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-  padding: 28px 24px 32px;
+  border-radius: 24px;
+  padding: 28px 22px 32px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(15, 23, 42, 0.9);
 }
 
-/* -------- TOPO -------- */
+/* LOGO + CHIP BLACK FRIDAY */
 .logo {
   text-align: center;
   margin-bottom: 16px;
+}
+
+.logo-img {
+  width: 170px;
+  height: auto;
+  display: block;
+  margin: 0 auto 12px;
 }
 
 .logo span {
   display: inline-block;
   font-weight: 800;
   letter-spacing: 0.12em;
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   color: #f97316;
   background: #020617;
   border-radius: 999px;
-  padding: 5px 16px;
-  border: 1px solid rgba(249, 115, 22, 0.6);
-  box-shadow: 0 0 18px rgba(249, 115, 22, 0.4);
+  padding: 4px 14px;
+  border: 1px solid rgba(249, 115, 22, 0.8);
+  box-shadow: 0 0 16px rgba(249, 115, 22, 0.5);
 }
 
+/* TÍTULOS */
 h1 {
   text-align: center;
   font-size: 24px;
@@ -63,7 +70,7 @@ h1 {
   margin-bottom: 16px;
 }
 
-/* -------- FORM -------- */
+/* FORMULÁRIO */
 form {
   display: flex;
   flex-direction: column;
@@ -85,7 +92,7 @@ input {
   color: #f9fafb;
   font-size: 14px;
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 input::placeholder {
@@ -94,8 +101,7 @@ input::placeholder {
 
 input:focus {
   border-color: #f97316;
-  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.7);
-  background: #020617;
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.6);
 }
 
 .small-print {
@@ -105,7 +111,7 @@ input:focus {
   text-align: center;
 }
 
-/* -------- BUTTON -------- */
+/* BOTÕES */
 .btn {
   margin-top: 8px;
   width: 100%;
@@ -133,7 +139,7 @@ input:focus {
   box-shadow: none;
 }
 
-/* -------- SCREENS -------- */
+/* TELAS */
 .screen {
   display: none;
 }
@@ -142,7 +148,7 @@ input:focus {
   display: block;
 }
 
-/* -------- TEXTO BOA SORTE -------- */
+/* TEXTO BOA SORTE */
 .welcome {
   font-size: 13px;
   color: #e5e7eb;
@@ -155,7 +161,7 @@ input:focus {
   font-weight: 700;
 }
 
-/* -------- ROULETTE CONTAINER -------- */
+/* CONTAINER ROLETA */
 .roulette-container {
   display: flex;
   flex-direction: column;
@@ -164,11 +170,11 @@ input:focus {
   margin-top: 4px;
 }
 
-/* -------- WHEEL -------- */
+/* ROLETA */
 .wheel-wrapper {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: 260px;
+  height: 260px;
   margin: 8px auto 6px;
 }
 
@@ -180,17 +186,15 @@ input:focus {
   box-shadow:
     0 0 0 4px rgba(15, 23, 42, 1),
     0 24px 40px rgba(0, 0, 0, 0.85);
-
   background:
     conic-gradient(
-      #F36F22 0deg 60deg,     /* Crispyzola */
-      #E05E7B 60deg 120deg,   /* Dos Anjos */
-      #7D0945 120deg 180deg,  /* Batata P */
-      #933A9E 180deg 240deg,  /* 1985 */
-      #421E8D 240deg 300deg,  /* Coxinha */
-      #771877 300deg 360deg   /* Soda Italiana */
+      #f97316 0deg 60deg,     /* Crispyzola */
+      #f973ab 60deg 120deg,   /* Coxinha */
+      #7c3aed 120deg 180deg,  /* Dos Anjos */
+      #facc15 180deg 240deg,  /* 1985 */
+      #ec4899 240deg 300deg,  /* Batata P */
+      #4f46e5 300deg 360deg   /* Soda */
     );
-    
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,8 +202,7 @@ input:focus {
   position: relative;
 }
 
-
-/* círculo central */
+/* CÍRCULO CENTRAL */
 .wheel-inner {
   width: 40%;
   height: 40%;
@@ -219,7 +222,7 @@ input:focus {
   z-index: 2;
 }
 
-/* ponteiro */
+/* PONTEIRO */
 .pointer {
   position: absolute;
   top: -20px;
@@ -229,33 +232,37 @@ input:focus {
   height: 0;
   border-left: 18px solid transparent;
   border-right: 18px solid transparent;
-  border-bottom: 26px solid #111827;
+  border-bottom: 26px solid #f97316;
   filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.8));
 }
 
-/* -------- TEXTOS DA ROLETA -------- */
-/* ======== CORREÇÃO DE TEXTOS NA ROLETA ======== */
+/* TEXTOS DAS FATIAS – SEM MISTURAR */
 .wheel-label {
   position: absolute;
   left: 50%;
   top: 50%;
   transform-origin: center center;
-  width: 55%;
+  width: 48%;
   text-align: center;
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #ffffff;
   line-height: 1.1;
+  word-wrap: break-word;
   padding: 0 2px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  z-index: 1;
 }
 
-.wheel-label-0 { transform: rotate(0deg) translateY(-67%) rotate(0deg); }
-.wheel-label-1 { transform: rotate(60deg) translateY(-67%) rotate(-60deg); }
-.wheel-label-2 { transform: rotate(120deg) translateY(-67%) rotate(-120deg); }
-.wheel-label-3 { transform: rotate(180deg) translateY(-67%) rotate(-180deg); }
-.wheel-label-4 { transform: rotate(240deg) translateY(-67%) rotate(-240deg); }
-.wheel-label-5 { transform: rotate(300deg) translateY(-67%) rotate(-300deg); }
+/* cada label no centro da fatia, bem afastado do meio */
+.wheel-label-0 { transform: rotate(0deg) translateY(-62%) rotate(0deg); }
+.wheel-label-1 { transform: rotate(60deg) translateY(-62%) rotate(-60deg); }
+.wheel-label-2 { transform: rotate(120deg) translateY(-62%) rotate(-120deg); }
+.wheel-label-3 { transform: rotate(180deg) translateY(-62%) rotate(-180deg); }
+.wheel-label-4 { transform: rotate(240deg) translateY(-62%) rotate(-240deg); }
+.wheel-label-5 { transform: rotate(300deg) translateY(-62%) rotate(-300deg); }
 
-
-/* -------- RESULT BOX -------- */
+/* RESULTADO */
 .result-box {
   margin-top: 10px;
   padding: 14px 14px 16px;
@@ -275,38 +282,11 @@ input:focus {
   margin-bottom: 4px;
 }
 
-/* frase da data em vermelho */
-.result-box p:last-child {
-  margin-top: 6px;
-}
-
-/* -------- PROBABILITIES -------- */
-.probabilities {
-  margin-top: 12px;
-  font-size: 11px;
-  color: #9ca3af;
-  border-top: 1px dashed rgba(55, 65, 81, 0.9);
-  padding-top: 8px;
-  text-align: center;
-}
-
-.probabilities ul {
-  list-style: none;
-  margin-top: 4px;
-}
-
-.probabilities li {
-  margin-bottom: 2px;
-}
-
-/* -------- RESPONSIVO -------- */
-@media (min-width: 640px) {
+/* RESPONSIVO – aumenta roleta e card em telas grandes */
+@media (min-width: 768px) {
   .card {
-    padding: 32px 32px 36px;
-  }
-
-  h1 {
-    font-size: 26px;
+    max-width: 580px;
+    padding: 32px 32px 38px;
   }
 
   .wheel-wrapper {
@@ -315,15 +295,13 @@ input:focus {
   }
 }
 
-.sticker-text {
-  font-family: "Arial Black", Impact, sans-serif;
-  font-weight: 900;
-  color: #f97316;
-  text-shadow:
-    -2px -2px 0 white,
-     2px -2px 0 white,
-    -2px  2px 0 white,
-     2px  2px 0 white;
-  letter-spacing: 1px;
-  text-transform: lowercase;
+@media (min-width: 1100px) {
+  .card {
+    max-width: 620px;
+  }
+
+  .wheel-wrapper {
+    width: 330px;
+    height: 330px;
+  }
 }
