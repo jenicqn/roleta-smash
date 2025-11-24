@@ -238,16 +238,22 @@ input:focus {
 }
 
 /* TEXTOS DAS FATIAS – CORREÇÃO DE POSIÇÃO */
+/* style.css */
+
+/* TEXTOS DAS FATIAS – GARANTIR ESPAÇO E ALINHAMENTO */
 .wheel-label {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform-origin: 0% 100%; /* Gira a partir da base (centro) */
-    width: 48%;
+    /* ESSENCIAL: Gira a partir da base para a rotação funcionar */
+    transform-origin: 0% 100%; 
     
-    /* Ajustes para visibilidade */
+    /* AUMENTAR A LARGURA PARA CABER O TEXTO COMPLETO */
+    width: 48%; 
+    
+    /* Ajustes para visibilidade e alinhamento */
     text-align: left; 
-    font-size: 11px; /* Aumentado de 10px para 11px */
+    font-size: 11px;
     font-weight: 800;
     color: #ffffff;
     line-height: 1.1;
@@ -258,12 +264,12 @@ input:focus {
 }
 
 /* Transformação corrigida: rotate para centralizar a fatia + translateY para afastar do centro + rotate(90deg) para deitar o texto */
-.wheel-label-0 { transform: rotate(30deg) translateY(-85%) rotate(90deg); } /* Centro em 30° */
-.wheel-label-1 { transform: rotate(90deg) translateY(-85%) rotate(90deg); } /* Centro em 90° */
-.wheel-label-2 { transform: rotate(150deg) translateY(-85%) rotate(90deg); } /* Centro em 150° */
-.wheel-label-3 { transform: rotate(210deg) translateY(-85%) rotate(90deg); } /* Centro em 210° */
-.wheel-label-4 { transform: rotate(270deg) translateY(-85%) rotate(90deg); } /* Centro em 270° */
-.wheel-label-5 { transform: rotate(330deg) translateY(-85%) rotate(90deg); } /* Centro em 330° */
+.wheel-label-0 { transform: rotate(30deg) translateY(-85%) rotate(90deg); }
+.wheel-label-1 { transform: rotate(90deg) translateY(-85%) rotate(90deg); }
+.wheel-label-2 { transform: rotate(150deg) translateY(-85%) rotate(90deg); }
+.wheel-label-3 { transform: rotate(210deg) translateY(-85%) rotate(90deg); }
+.wheel-label-4 { transform: rotate(270deg) translateY(-85%) rotate(90deg); }
+.wheel-label-5 { transform: rotate(330deg) translateY(-85%) rotate(90deg); }
 
 /* RESULTADO */
 .result-box {
