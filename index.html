@@ -1,83 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roleta de Brindes Smash do Cabo</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roleta de Brindes Smash do Cabo</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <div class="card">
+    <div class="card">
 
-    <!-- LOGO + TEXTO -->
-    <div class="logo">
-      <img src="logo.png" alt="Smash do Cabo" class="logo-img" />
-      <span>BLACK FRIDAY SMASH DO CABO </span>
-    </div>
-
-    <!-- TÍTULO E SUB -->
-    <h1>Roleta de Brindes</h1>
-    <p class="subtitle">Cadastre seus dados, gire a roleta e descubra qual brinde você vai levar</p>
-
-    <!-- TELA FORM -->
-    <div id="screen-form" class="screen active">
-      <form id="register-form">
-        <div>
-          <label for="nome">Nome completo</label>
-          <input id="nome" name="nome" type="text" placeholder="Seu nome" required />
-        </div>
-        <div>
-          <label for="telefone">Telefone com WhatsApp</label>
-          <input id="telefone" name="telefone" type="tel" placeholder="22999999999" required />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="voce@exemplo.com" required />
-        </div>
-        <div>
-          <label for="cidade">Cidade onde você mora</label>
-          <input id="cidade" name="cidade" type="text" placeholder="Arraial do Cabo" required />
+        <div class="logo">
+            <img src="logo.png" alt="Smash do Cabo" class="logo-img" />
+            <span>BLACK FRIDAY SMASH DO CABO </span>
         </div>
 
-        <button type="submit" class="btn">Começar a jogar</button>
-      </form>
+        <h1>Roleta de Brindes</h1>
+        <p class="subtitle">Cadastre seus dados, gire a roleta e descubra qual brinde você vai levar</p>
 
-      <p class="small-print">
-        Ao continuar, você concorda em receber comunicações do Smash do Cabo sobre promoções, sorteios e novidades.
-      </p>
-    </div>
+        <div id="screen-form" class="screen active">
+            <form id="register-form">
+                <div>
+                    <label for="nome">Nome completo</label>
+                    <input id="nome" name="nome" type="text" placeholder="Seu nome" required />
+                </div>
+                <div>
+                    <label for="telefone">Telefone com WhatsApp</label>
+                    <input id="telefone" name="telefone" type="tel" placeholder="22999999999" required />
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="voce@exemplo.com" required />
+                </div>
+                <div>
+                    <label for="cidade">Cidade onde você mora</label>
+                    <input id="cidade" name="cidade" type="text" placeholder="Arraial do Cabo" required />
+                </div>
 
-    <!-- TELA DA ROLETA -->
-    <div id="screen-roulette" class="screen">
-      <p class="welcome">Boa sorte, <span id="player-name"></span></p>
+                <button type="submit" class="btn">Começar a jogar</button>
+            </form>
 
-      <div class="roulette-container">
-        <div class="wheel-wrapper">
-          <div class="pointer"></div>
-          <div id="wheel" class="wheel">
-            <div class="wheel-inner">Clique para girar</div>
-<div class="wheel-label wheel-label-0 sticker-text">Crispyzola</div>
-<div class="wheel-label wheel-label-1 sticker-text">porção coxinha</div>
-<div class="wheel-label wheel-label-2 sticker-text">dos anjos</div>
-<div class="wheel-label wheel-label-3 sticker-text">1985</div>
-<div class="wheel-label wheel-label-4 sticker-text">batata frita P</div>
-<div class="wheel-label wheel-label-5 sticker-text">soda italiana</div>
-
-          </div>
+            <p class="small-print">
+                Ao continuar, você concorda em receber comunicações do Smash do Cabo sobre promoções, sorteios e novidades.
+            </p>
         </div>
 
-        <button id="spin-btn" class="btn spin-btn">Girar roleta</button>
+        <div id="screen-roulette" class="screen">
+            <p class="welcome">Boa sorte, <span id="player-name"></span></p>
 
-        <div id="result" class="result-box" style="display:none;">
-          <div id="result-text"></div>
+            <div class="roulette-container">
+                <div class="wheel-wrapper">
+                    <div class="pointer"></div>
+                    <div id="wheel" class="wheel">
+                        <div class="wheel-inner">Clique para girar</div>
+                        <div class="wheel-label wheel-label-0 sticker-text">SMASH CRISPYZOLA</div>
+                        <div class="wheel-label wheel-label-1 sticker-text">PORÇÃO COXINHA</div>
+                        <div class="wheel-label wheel-label-2 sticker-text">SMASH DOS ANJOS</div>
+                        <div class="wheel-label wheel-label-3 sticker-text">SMASH 1985</div>
+                        <div class="wheel-label wheel-label-4 sticker-text">BATATA FRITA P</div>
+                        <div class="wheel-label wheel-label-5 sticker-text">SODA ITALIANA</div>
+
+                    </div>
+                </div>
+
+                <button id="spin-btn" class="btn spin-btn">Girar roleta</button>
+
+                <div id="result" class="result-box" style="display:none;">
+                    <div id="result-text"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </div><!-- fim card -->
-
-  <script src="main.js"></script>
+    </div><script src="main.js"></script>
 </body>
 </html>
