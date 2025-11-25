@@ -204,23 +204,15 @@ input:focus {
     position: relative;
 }
 
-/* CÍRCULO CENTRAL */
+/* CÍRCULO CENTRAL - AGORA SEM TEXTO */
 .wheel-inner {
     width: 40%;
     height: 40%;
     border-radius: 50%;
     background: radial-gradient(circle, #f9fafb, #e5e7eb);
     border: 3px solid rgba(15, 23, 42, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 13px;
-    text-align: center;
-    padding: 6px;
-    color: #020617;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    /* Removido display flex, alinhamentos e padding para o texto não existir */
+    font-size: 0; /* GARANTE QUE NENHUM TEXTO APAREÇA */
     z-index: 2;
 }
 
@@ -238,7 +230,7 @@ input:focus {
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.8));
 }
 
-/* TEXTOS DAS FATIAS – GARANTIR ESPAÇO E ALINHAMENTO */
+/* TEXTOS DAS FATIAS – CENTRALIZADOS E COM ESPAÇO ADEQUADO */
 .wheel-label {
     position: absolute;
     left: 50%;
@@ -246,25 +238,25 @@ input:focus {
     transform-origin: 0% 100%; /* ESSENCIAL para centralizar */
     width: 48%; /* ESSENCIAL para caber o texto */
     
-    /* Ajustes de visibilidade */
-    text-align: left; 
+    /* Ajustes para centralizar e melhorar a legibilidade */
+    text-align: center; /* AGORA CENTRALIZA O TEXTO DENTRO DA ÁREA */
+    padding-left: 0; /* REMOVIDO ESPAÇAMENTO QUE ATRAPALHAVA A CENTRALIZAÇÃO */
     font-size: 11px;
     font-weight: 800;
     color: #ffffff;
     line-height: 1.1;
     word-wrap: break-word;
-    padding-left: 10px;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
     z-index: 1;
 }
 
 /* Transformação corrigida para centralizar o texto em cada fatia */
-.wheel-label-0 { transform: rotate(30deg) translateY(-85%) rotate(90deg); }
-.wheel-label-1 { transform: rotate(90deg) translateY(-85%) rotate(90deg); }
-.wheel-label-2 { transform: rotate(150deg) translateY(-85%) rotate(90deg); }
-.wheel-label-3 { transform: rotate(210deg) translateY(-85%) rotate(90deg); }
-.wheel-label-4 { transform: rotate(270deg) translateY(-85%) rotate(90deg); }
-.wheel-label-5 { transform: rotate(330deg) translateY(-85%) rotate(90deg); }
+.wheel-label-0 { transform: rotate(30deg) translateY(-90%) rotate(90deg); } /* Ajuste de translateY para afastar do centro */
+.wheel-label-1 { transform: rotate(90deg) translateY(-90%) rotate(90deg); }
+.wheel-label-2 { transform: rotate(150deg) translateY(-90%) rotate(90deg); }
+.wheel-label-3 { transform: rotate(210deg) translateY(-90%) rotate(90deg); }
+.wheel-label-4 { transform: rotate(270deg) translateY(-90%) rotate(90deg); }
+.wheel-label-5 { transform: rotate(330deg) translateY(-90%) rotate(90deg); }
 
 /* RESULTADO */
 .result-box {
