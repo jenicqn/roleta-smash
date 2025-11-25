@@ -251,12 +251,14 @@ input:focus {
 }
 
 /* Transformação corrigida para centralizar o texto em cada fatia */
-.wheel-label-0 { transform: rotate(30deg) translateY(-90%) rotate(90deg); } /* Ajuste de translateY para afastar do centro */
-.wheel-label-1 { transform: rotate(90deg) translateY(-90%) rotate(90deg); }
-.wheel-label-2 { transform: rotate(150deg) translateY(-90%) rotate(90deg); }
-.wheel-label-3 { transform: rotate(210deg) translateY(-90%) rotate(90deg); }
-.wheel-label-4 { transform: rotate(270deg) translateY(-90%) rotate(90deg); }
-.wheel-label-5 { transform: rotate(330deg) translateY(-90%) rotate(90deg); }
+/* style.css */
+/* Aumentando o valor negativo para empurrar o texto para o centro vertical */
+.wheel-label-0 { transform: rotate(30deg) translateY(-110%) rotate(90deg); }
+.wheel-label-1 { transform: rotate(90deg) translateY(-110%) rotate(90deg); }
+.wheel-label-2 { transform: rotate(150deg) translateY(-110%) rotate(90deg); }
+.wheel-label-3 { transform: rotate(210deg) translateY(-110%) rotate(90deg); }
+.wheel-label-4 { transform: rotate(270deg) translateY(-110%) rotate(90deg); }
+.wheel-label-5 { transform: rotate(330deg) translateY(-110%) rotate(90deg); }
 
 /* RESULTADO */
 .result-box {
