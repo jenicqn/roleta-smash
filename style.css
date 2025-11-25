@@ -13,8 +13,9 @@ body {
     background: linear-gradient(135deg, #ffd4a3 0%, #ff8a2b 40%, #ff6a00 100%);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center; /* CENTRALIZAÇÃO VERTICAL CORRIGIDA */
     padding: 32px 16px;
+    flex-direction: column;
 }
 
 /* CARD PRINCIPAL */
@@ -237,33 +238,27 @@ input:focus {
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.8));
 }
 
-/* TEXTOS DAS FATIAS – CORREÇÃO DE POSIÇÃO */
-/* style.css */
-
 /* TEXTOS DAS FATIAS – GARANTIR ESPAÇO E ALINHAMENTO */
 .wheel-label {
     position: absolute;
     left: 50%;
     top: 50%;
-    /* ESSENCIAL: Gira a partir da base para a rotação funcionar */
-    transform-origin: 0% 100%; 
+    transform-origin: 0% 100%; /* ESSENCIAL para centralizar */
+    width: 48%; /* ESSENCIAL para caber o texto */
     
-    /* AUMENTAR A LARGURA PARA CABER O TEXTO COMPLETO */
-    width: 48%; 
-    
-    /* Ajustes para visibilidade e alinhamento */
+    /* Ajustes de visibilidade */
     text-align: left; 
     font-size: 11px;
     font-weight: 800;
     color: #ffffff;
     line-height: 1.1;
     word-wrap: break-word;
-    padding-left: 10px; /* Espaçamento da margem interna do setor */
+    padding-left: 10px;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
     z-index: 1;
 }
 
-/* Transformação corrigida: rotate para centralizar a fatia + translateY para afastar do centro + rotate(90deg) para deitar o texto */
+/* Transformação corrigida para centralizar o texto em cada fatia */
 .wheel-label-0 { transform: rotate(30deg) translateY(-85%) rotate(90deg); }
 .wheel-label-1 { transform: rotate(90deg) translateY(-85%) rotate(90deg); }
 .wheel-label-2 { transform: rotate(150deg) translateY(-85%) rotate(90deg); }
@@ -313,17 +308,6 @@ input:focus {
         width: 330px;
         height: 330px;
     }
-}
-
-/* CORREÇÃO DE CENTRALIZAÇÃO GERAL */
-body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #ffd4a3 0%, #ff8a2b 40%, #ff6a00 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center; /* CENTRALIZA O CARD VERTICALMENTE */
-    padding: 32px 16px;
-    flex-direction: column;
 }
 
 /* LOGO MAIOR EM TELAS GRANDES */
